@@ -5,7 +5,7 @@ A very simplified Mercadolibre clone made with Express and EJS. It runs its SQL 
 First start your sql server and type the following commands
 
 ```bash
-  cd my-project
+  cd BD_MercadoLiebre
   npm i
   npm run db-create
   npm start
