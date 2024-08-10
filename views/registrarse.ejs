@@ -1,0 +1,29 @@
+<%- include('includes/header') %>
+<%- include('includes/navbar') %>
+<title>Iniciar Sesion</title>
+<div class="container">
+<h1 class="my-2">Registrate!</h1>
+<div class="row d-flex justify-content-center">
+<div class="col-4 text-center" style="background-color: rgb(167, 167, 87); border-radius: 5px; padding: 4em;">
+<form action="crearUsuario" method="post">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input type="text" name="name" class="form-control" id="nombre" aria-describedby="nombre">
+    <div id="emailHelp" class="form-text"></div>
+  </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Direccion de correo</label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">Nunca compartiremos tu correo con nadie.</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input type="password" name="pwd" class="form-control" id="exampleInputPassword1">
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+</div>
+</div>
+<%- include('includes/endheader') %>

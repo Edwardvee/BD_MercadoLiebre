@@ -1,0 +1,71 @@
+<%- include('includes/header') %> <%- include('includes/navbar') %>
+
+<link rel="stylesheet" href="css/index.css" />
+<div class="page">
+  <main>
+    <article class="content px-4">
+      <div class="payment-method">
+        <div class="row-8">
+          <div class="col">
+            <i class="bi bi-credit-card-fill"></i> Tarjeta de credito
+          </div>
+          <div class="col">
+            <i class="bi bi-credit-card-fill"></i>Tarjeta de debito
+          </div>
+          <div class="col"><i class="bi bi-wallet"></i>Cuotas sin tarjeta</div>
+          <div class="col"><i class="bi bi-cash-stack"></i>Efectivo</div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <div class="container p-2 ">
+    <% if (user.address) { %>
+    <h1>Productos destacados en <%= user.address %></h1>
+    <div class="row d-flex">
+
+
+    <% productos.forEach( producto => { if(producto.zona == user.address){ %>
+        <div class="col-lg-3 col-md-6 mr-1 my-1">
+          <a class="card" href="/producto/<%= producto.id %>" style="width: 18rem">
+            <img
+              src="/img/<%= producto.id %>.png"
+              class="card-img-top"
+              alt="tu producto"
+            />
+            <div class="card-body" >
+              <p class="card-title"><%= producto.titulo %></p>
+              <h3 class="card-text">$<%= producto.precio %></h3>
+              <p class="card-title">en 12 x $10</p>
+              <p class="card-text success">Envio gratis</p>
+            </div>
+          </a>
+        </div>
+        <% } }) %>
+    </div>
+
+    <% } %>
+    <h1>Productos publicados</h1>
+    <div class="row d-flex">
+      <% productos.forEach( producto => { %>
+      <div class="col-lg-3 col-md-6 mr-1 my-1">
+        <a class="card" href="/producto/<%= producto.id %>" style="width: 18rem">
+          <img
+            src="/img/<%= producto.id %>.png"
+            class="card-img-top"
+            alt="tu producto"
+          />
+          <div class="card-body">
+            <p class="card-title"><%= producto.titulo %></p>
+            <h3 class="card-text">$<%= producto.precio %></h3>
+            <p class="card-title">en 12 x $10</p>
+            <p class="card-text success">Envio gratis</p>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+  </div>
+</div>
+
+<%- include('includes/endheader') %>

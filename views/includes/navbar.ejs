@@ -1,0 +1,77 @@
+<link type="text/css" href="/css/navbar.css" rel="stylesheet" />
+<div class="top-row ps-3 navbar navbar-merlib">
+  <div class="container-fluid navbar-merlib">
+    <div class="col-12">
+      <div class="row">
+        <div class="col d-flex justify-content-end me-3">
+          <a width="auto" height="auto" href="/"
+            ><img src="/img/logo.png" alt="hola" width="80px" height="80px"
+          /></a>
+        </div>
+        <div class="col align-bottom">
+          <form class="d-flex" action="buscar" method="get">
+            <input
+            name="texto"
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Buscar
+            </button>
+          </form>
+        </div>
+        <div class="col align-bottom">
+          <a><img height="50%" width="65%" src="/img/hola.jpg" alt="oña" /></a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <ul>
+            <li class="dropdown"><a class="nav-link dropdown-toggle" href="" id="zonas" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Enviar a...   <% if (user.address) { %>
+                <%= user.address %>
+                <% } %>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="zonas">
+              <li><a class="dropdown-item" href="/setearZona/Buenos Aires">Buenos Aires</a></li>
+              <li><a class="dropdown-item" href="/setearZona/Cordoba">Cordoba</a></li>
+              <li><a class="dropdown-item" href="/setearZona/Rosario">Rosario</a></li>
+            </ul>
+          </ul>
+        </div>
+        <div class="col-4">
+          <div class="btn-group">
+            <a class="nav-link" href="">Categorias</a>
+            <a class="nav-link" href="">Ofertas</a>
+
+            <a class="nav-link text-muted">Vender</a>
+
+          </div>
+        </div>
+        <% if (user.name) { %>
+        <div class="col-4">
+          <div class="btn-group">
+            <a class="nav-link"  href="">Hola <%= user.name %></a>
+            <a class="nav-link" href="">Mis compras</a>  
+             <a class="nav-link" href="/logout">Cerrar sesion</a>
+          </div>
+        </div>
+        <% } else { %>
+
+        <div class="col-4">
+          <div class="btn-group">
+            <a class="nav-link" href="/registrarse">Crea tu cuenta </a>
+            <a class="nav-link" href="/iniciar-sesion">Ingresa</a>
+
+            <a><i class="bi bi-cart"></i></a>
+          </div>
+        </div>
+
+        <%} %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<%- include('includes/header') %>
+<%- include('includes/navbar') %>
+<% productos.forEach(producto=> { %>
+  <div class="container my-2 border rounded p-4 shadow">
+    <div class="row d-flex">
+      <div class="col-6">
+        <img
+        src="/img/<%= producto.id %>.png"
+        alt="tu producto"
+        style="max-width: 100%;"
+      />
+      </div>
+      <div class="col-3">
+        <p><%= producto.condicion %></p>
+        <h2 class="fw-light"><%= producto.titulo %></h2>
+        <h1 class="fw-lighter">$<%= producto.precio %></h1>
+
+        <p class="card-text success">Envio gratis</p>
+        <p class="fw-light fs-6">Zona: <%= producto.zona %></p>
+
+        <p>Compralo ya y pagalo en 12 cuotas de $10</p>
+        <p>Stock disponible: <%= producto.stock %></p>  
+        
+        <% if (user.name) { %>
+          <a class="button btn btn-primary <% if (producto.stock <= 0) { %> disabled <%}%>" href="/comprar/<%= producto.id %>" >Comprar!</a>
+
+        <% } else{  %>
+          <a class="button btn btn-primary <% if (producto.stock <= 0) { %> disabled <%}%>" href="/iniciar-sesion"      >Comprar!</a>
+
+
+          <% } %>
+      </div>
+      <div class="col-3">
+        <h3 class="fw-light" >Descripcion del vendedor</h3>
+        <p class="fw-light fs-6"><%= producto.descripcion %></p>
+      </div>
+
+</div>
+</div>
+<% }) %>
+<%- include('includes/endheader') %>

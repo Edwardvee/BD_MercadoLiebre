@@ -1,0 +1,25 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    background-color: #ebebeb;
+}
+
+a.card{
+    text-decoration: none;
+
+    max-width: 15em;
+}
+.card-img-top{
+
+height: 17em;
+max-height: 17em;
+}
+p.success{
+    font-weight:620;
+    color: green;
+}
